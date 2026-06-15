@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Dauda Monsurat G</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="contact.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
+</head>
+<body>
+  <header class="page-header">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a class="brand" href="index.html">Dauda Monsurat G</a>
+      <nav class="page-nav">
+        <a href="index.html">Portfolio</a>
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="exprience.html">Experience</a>
+        <a href="documentation.html">Documentation</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page-main container">
+    <h1>Contact Me</h1>
+    <p>If you have a project, question, or want to collaborate, send a message below.</p>
+    
+    <section class="contact-info">
+      <h2>Connect With Me</h2>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/dauda-monsurat-gbemisola-353a9429a" target="_blank" class="contact-link">
+          <i class="bi bi-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://wa.me/+2347047017157" target="_blank" class="contact-link">
+          <i class="bi bi-whatsapp"></i>
+          <span>WhatsApp</span>
+        </a>
+        <a href="mailto:daudamonsurat2022@gmail.com" class="contact-link">
+          <i class="bi bi-envelope"></i>
+          <span>Gmail</span>
+        </a>
+      </div>
+    </section>
+
+    <form id="contactForm">
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input class="form-control" id="name" name="name" placeholder="Your name" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input class="form-control" id="email" name="email" type="email" placeholder="Your email" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Subject</label>
+        <input class="form-control" id="subject" name="subject" placeholder="Hiring Inquiry" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Message</label>
+        <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+      <span id="status-message" style="margin-top: 10px; display: block;"></span>
+    </form>
+
+    <section class="contact-extra">
+      <h2>Ready to Start?</h2>
+      <div class="contact-grid">
+        <div>
+          <i class="bi bi-clock-history icon-lg"></i>
+          <h3>Quick Response</h3>
+          <p>I typically reply within one business day to discuss your project.</p>
+        </div>
+        <div>
+          <i class="bi bi-people-fill icon-lg"></i>
+          <h3>Flexible Collaboration</h3>
+          <p>I work with startups, small businesses, and teams seeking better data workflows.</p>
+        </div>
+        <div>
+          <i class="bi bi-arrow-right-square icon-lg"></i>
+          <h3>Clear Next Steps</h3>
+          <p>Share your needs and I’ll suggest a plan for analytics, web design, or both.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="page-footer">
+    <p>@dmonsurat.gbemisola</p>
+  </footer>
+
+  <script>
+    // Wait for EmailJS to load
+    window.addEventListener('load', function() {
+      if (typeof emailjs !== 'undefined') {
+        // Initialize EmailJS with your User ID
+        emailjs.init('YOUR_EMAILJS_USER_ID_HERE');
+      }
+    });
+
+    // Handle form submission
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const statusMessage = document.getElementById('status-message');
+      statusMessage.textContent = 'Sending...';
+      statusMessage.style.color = '#0d6efd';
+
+      // Get form values
+      const formData = {
+        to_email: 'daudamonsurat2022@gmail.com',
+        from_name: document.getElementById('name').value,
+        from_email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+      };
+
+      // Check if EmailJS is loaded
+      if (typeof emailjs === 'undefined') {
+        statusMessage.textContent = '✗ Email service is not available. Please try using WhatsApp or LinkedIn instead.';
+        statusMessage.style.color = '#dc3545';
+        return;
+      }
+
+      // Send email using EmailJS
+      emailjs.send('YOUR_SERVICE_ID_HERE', 'YOUR_TEMPLATE_ID_HERE', formData)
+        .then(function(response) {
+          statusMessage.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+          statusMessage.style.color = '#28a745';
+          document.getElementById('contactForm').reset();
+          
+          // Clear success message after 5 seconds
+          setTimeout(() => {
+            statusMessage.textContent = '';
+          }, 5000);
+        }, function(error) {
+          statusMessage.textContent = '✗ Failed to send message. Please try again or use WhatsApp.';
+          statusMessage.style.color = '#dc3545';
+          console.error('EmailJS error:', error);
+        });
+    });
+  </script>
+</body>
+</html>

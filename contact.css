@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #0a1432;
+  color: #f8f9fa;
+}
+
+.page-header {
+  background: #111;
+  padding: 18px 0;
+}
+
+.page-header .brand {
+  color: #0d6efd;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.page-nav a {
+  color: #f8f9fa;
+  margin-left: 18px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.page-nav a:hover {
+  color: #0d6efd;
+}
+
+.page-main {
+  padding: 90px 0;
+}
+
+.page-main h1 {
+  margin-bottom: 18px;
+}
+
+.page-main p {
+  max-width: 760px;
+  line-height: 1.8;
+}
+
+form {
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 28px;
+  border-radius: 18px;
+  max-width: 700px;
+}
+
+.contact-extra {
+  margin-top: 40px;
+}
+
+.contact-extra h2 {
+  color: #0d6efd;
+  margin-bottom: 18px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.contact-grid div {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.contact-grid .icon-lg {
+  font-size: 2rem;
+  color: #0d6efd;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-control {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f8f9fa;
+}
+
+.form-label {
+  color: #f8f9fa;
+}
+
+.contact-info {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.contact-info h2 {
+  color: #0d6efd;
+  margin-bottom: 30px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 25px;
+  background: rgba(13, 110, 253, 0.15);
+  border: 2px solid #0d6efd;
+  border-radius: 12px;
+  color: #0d6efd;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.contact-link i {
+  font-size: 1.8rem;
+}
+
+.contact-link:hover {
+  background: #0d6efd;
+  color: #f8f9fa;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
+}
+
+#status-message {
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+.page-footer {
+  background: #111;
+  text-align: center;
+  padding: 18px 0;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .page-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .page-nav {
+    margin-top: 12px;
+  }
+  .page-nav a {
+    display: inline-block;
+    margin: 6px 10px 0 0;
+  }
+}
